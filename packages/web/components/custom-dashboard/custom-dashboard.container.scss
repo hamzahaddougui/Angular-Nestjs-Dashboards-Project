@@ -1,0 +1,61 @@
+carousel#dashboard-carousel {
+    top: 70px;
+    height: 150px !important;
+    .carousel-cell{
+        width: 205px !important;
+        mat-card{
+            display: flex;
+            flex-direction: row;
+            mat-icon{
+                color: #bace10;
+            } 
+        }
+    }
+}
+
+#dashboard-container{
+    background: white;
+    border: 1px solid white;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    column-gap: 10%;
+}
+
+#dashboard-container div{
+    flex-grow: 1;
+    color: #3d3d3d;
+    font-size: 16px;
+}
+
+#dashboard-container div span.no-data{
+    font-size: small;
+    margin-left: 3%;
+}
+
+#dashboard-container div div{
+    padding: 8px;
+    border-radius: 5px;
+}
+
+#dashboard-container table{
+   border: 1px solid #f3f3f3;
+   border-radius: 5px;
+   margin-bottom: 10px;
+}
+
+:host ::ng-deep #dashboard-container table thead tr{
+    background-color: #f3f3f3 !important;
+}
+
+:host ::ng-deep #dashboard-container table tbody tr{
+    background-color: white !important;
+    cursor: pointer;
+}
+
+:host ::ng-deep #dashboard-container table tfoot tr{
+    background-color: #d8ebff !important;
+    color: black;
+}

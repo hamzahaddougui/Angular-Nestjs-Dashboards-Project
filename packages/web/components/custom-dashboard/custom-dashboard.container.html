@@ -1,0 +1,29 @@
+<carousel id="dashboard-carousel" [arrows]="sections?.length>4">
+    <ng-container *ngFor="let section of sections; index as i">
+        <div class="carousel-cell">
+            <mat-card>
+                <span (click)="getTarget(section)">{{section}}</span>
+                <mat-icon>bar_chart</mat-icon>
+            </mat-card>
+        </div>
+    </ng-container>
+</carousel>
+
+<div id="dashboard-container">
+    <div *ngFor="let item of source">
+        <div>{{item?.key}}</div>
+        <div *ngIf="item?.content?.length> 0">
+            <table mat-table [dataSource]="item.content" class="mat-elevation-z8">
+                <ng-container *ngFor="let column of item.columns" [matColumnDef]="column">
+                    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+                    <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+                    <td mat-footer-cell *matFooterCellDef> {{item?.footer[column]}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="item.columns"></tr>
+                <tr mat-row *matRowDef="let row; columns: item.columns;"></tr>
+                <tr mat-footer-row *matFooterRowDef="item.columns"></tr>
+            </table>
+        </div>
+        <span class="no-data" *ngIf="item?.content?.length== 0">Unvailable data</span>
+    </div>
+</div>
